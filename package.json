@@ -16,11 +16,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run fix-permissions && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pre-build": "node pre-build.js",
-    "serve": "npx serve -s build"
+    "fix-permissions": "chmod +x node_modules/.bin/react-scripts || echo 'Permission fix not needed'",
+    "render-build": "npm install && npm run build",
+    "serve": "npx serve -s build -l $PORT"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +42,7 @@
     ]
   },
   "engines": {
-    "node": ">=18.0.0",
+    "node": "18.x",
     "npm": ">=8.0.0"
   }
 }
