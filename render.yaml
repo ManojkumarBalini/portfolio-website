@@ -5,8 +5,8 @@ services:
     region: ohio
     plan: free
     branch: main
-    buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: npx serve -s build
+    buildCommand: npm run pre-build
+    startCommand: npm run serve
     envVars:
       - key: NODE_ENV
         value: production
