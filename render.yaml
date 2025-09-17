@@ -1,4 +1,3 @@
-# Render configuration file
 services:
   - type: web
     name: portfolio-website
@@ -6,12 +5,8 @@ services:
     region: ohio
     plan: free
     branch: main
-    
-    # Build settings
-    buildCommand: npm install && npm run build
-    startCommand: npm run start-server
-    
-    # Environment variables
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npx serve -s build
     envVars:
       - key: NODE_ENV
         value: production
