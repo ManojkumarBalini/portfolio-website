@@ -1,0 +1,19 @@
+# Render configuration file
+services:
+  - type: web
+    name: portfolio-website
+    env: node
+    region: ohio
+    plan: free
+    branch: main
+    
+    # Build settings
+    buildCommand: npm install && npm run build
+    startCommand: npm run start-server
+    
+    # Environment variables
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
