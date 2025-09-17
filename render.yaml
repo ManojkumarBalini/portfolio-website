@@ -1,0 +1,33 @@
+# Render configuration file
+services:
+  - type: web
+    name: portfolio-website
+    env: node
+    region: ohio  # or us-west, europe-west, etc.
+    plan: free
+    branch: main
+    
+    # Build settings
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    
+    # Environment variables
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    
+    # Health check path
+    healthCheckPath: /
+    
+    # Auto-deploy from GitHub
+    autoDeploy: true
+
+# For static site deployment (alternative approach)
+# staticSites:
+#   - name: portfolio-static
+#     buildCommand: npm install && npm run build
+#     publishPath: ./build
+#     env: static
+#     pullRequestPreviewsEnabled: true
