@@ -19,10 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server.js",
-    "dev": "react-scripts start",
-    "render-build": "npm install && npm run build",
-    "start-server": "node server.js"
+    "pre-build": "node pre-build.js",
+    "serve": "npx serve -s build"
   },
   "eslintConfig": {
     "extends": [
