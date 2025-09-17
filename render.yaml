@@ -5,7 +5,7 @@ services:
     region: ohio
     plan: free
     branch: main
-    buildCommand: npm run pre-build
+    buildCommand: chmod +x build.sh && ./build.sh
     startCommand: npm run serve
     envVars:
       - key: NODE_ENV
